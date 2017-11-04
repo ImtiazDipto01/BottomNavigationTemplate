@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_pizza"
+        android:icon="@drawable/pizza_slice"
+        android:title="@string/pizza_name"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_burger"
+        android:icon="@drawable/burger"
+        android:title="@string/burger_name"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_drink"
+        android:icon="@drawable/drink"
+        android:title="@string/drink_name"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_more"
+        android:icon="@drawable/more"
+        android:title="@string/more_name"
+        app:showAsAction="ifRoom"/>
+</menu>

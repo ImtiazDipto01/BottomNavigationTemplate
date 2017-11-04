@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BottomNavigationTemplate</string>
+    <string name="pizza_name">Pizza</string>
+    <string name="burger_name">Burger</string>
+    <string name="drink_name">Drinks</string>
+    <string name="more_name">More</string>
+</resources>
