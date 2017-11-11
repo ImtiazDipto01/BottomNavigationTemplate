@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        PizzaFragment pizzaFragment = new PizzaFragment();
+        FragmentTransaction pizza_ft = getSupportFragmentManager().beginTransaction();
+        pizza_ft.replace(R.id.new_container, pizzaFragment, "Pizza Fragment");
+        pizza_ft.commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -31,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.action_pizza:
                     PizzaFragment pizzaFragment = new PizzaFragment();
                     FragmentTransaction pizza_ft = getSupportFragmentManager().beginTransaction();
-                    pizza_ft.replace(R.id.new_container, pizzaFragment, "Burger Fragment");
+                    pizza_ft.replace(R.id.new_container, pizzaFragment, "Pizza Fragment");
                     pizza_ft.commit();
                     return true;
 
@@ -45,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.action_drink:
                     DrinksFragment drinksFragment = new DrinksFragment();
                     FragmentTransaction drinks_ft = getSupportFragmentManager().beginTransaction();
-                    drinks_ft.replace(R.id.new_container, drinksFragment, "Burger Fragment");
+                    drinks_ft.replace(R.id.new_container, drinksFragment, "Drink Fragment");
                     drinks_ft.commit();
                     return true;
 
                 case R.id.action_more:
                     MoreFragment moreFragment = new MoreFragment();
                     FragmentTransaction more_ft = getSupportFragmentManager().beginTransaction();
-                    more_ft.replace(R.id.new_container, moreFragment, "Burger Fragment");
+                    more_ft.replace(R.id.new_container, moreFragment, "More Fragment");
                     more_ft.commit();
                     return true;
             }
