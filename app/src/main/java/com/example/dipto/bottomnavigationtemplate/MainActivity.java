@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         PizzaFragment pizzaFragment = new PizzaFragment();
         FragmentTransaction pizza_ft = getSupportFragmentManager().beginTransaction();
-        pizza_ft.replace(R.id.new_container, pizzaFragment, "Pizza Fragment");
+        pizza_ft.replace(R.id.new_container, pizzaFragment, "Main Fragment");
         pizza_ft.commit();
     }
 
