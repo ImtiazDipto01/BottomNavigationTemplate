@@ -116,5 +116,5 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationViewEx.enableItemShiftingMode(false);
         bottomNavigationViewEx.enableShiftingMode(false);
     }
-    // now add methods
+    // added bottom navigation methods
 }
