@@ -11,6 +11,7 @@ import com.example.dipto.bottomnavigationtemplate.Fragment.BurgerFragment;
 import com.example.dipto.bottomnavigationtemplate.Fragment.DrinksFragment;
 import com.example.dipto.bottomnavigationtemplate.Fragment.MoreFragment;
 import com.example.dipto.bottomnavigationtemplate.Fragment.PizzaFragment;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +19,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationViewEx navigation = (BottomNavigationViewEx) findViewById(R.id.bottom_navigation);
+        //navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        bottomNavigationSetupUp(navigation);
+        bottomNavigationItemSelected(navigation);
+
 
         PizzaFragment pizzaFragment = new PizzaFragment();
         FragmentTransaction pizza_ft = getSupportFragmentManager().beginTransaction();
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         pizza_ft.commit();
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    /*private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -63,6 +67,54 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         }
-    };
+    };*/
+
+
+    private void bottomNavigationItemSelected(BottomNavigationViewEx view){
+
+        view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch(item.getItemId()){
+
+                    case R.id.action_pizza:
+                        PizzaFragment pizzaFragment = new PizzaFragment();
+                        FragmentTransaction pizza_ft = getSupportFragmentManager().beginTransaction();
+                        pizza_ft.replace(R.id.new_container, pizzaFragment, "Pizza Fragment");
+                        pizza_ft.commit();
+                        return true;
+
+                    case R.id.action_burger:
+                        BurgerFragment burgerFragment = new BurgerFragment();
+                        FragmentTransaction burger_ft = getSupportFragmentManager().beginTransaction();
+                        burger_ft.replace(R.id.new_container, burgerFragment, "Burger Fragment");
+                        burger_ft.commit();
+                        return true;
+
+                    case R.id.action_drink:
+                        DrinksFragment drinksFragment = new DrinksFragment();
+                        FragmentTransaction drinks_ft = getSupportFragmentManager().beginTransaction();
+                        drinks_ft.replace(R.id.new_container, drinksFragment, "Drink Fragment");
+                        drinks_ft.commit();
+                        return true;
+
+                    case R.id.action_more:
+                        MoreFragment moreFragment = new MoreFragment();
+                        FragmentTransaction more_ft = getSupportFragmentManager().beginTransaction();
+                        more_ft.replace(R.id.new_container, moreFragment, "More Fragment");
+                        more_ft.commit();
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    private void bottomNavigationSetupUp(BottomNavigationViewEx bottomNavigationViewEx){
+        //bottomNavigationViewEx.enableAnimation(false);
+        bottomNavigationViewEx.enableItemShiftingMode(false);
+        bottomNavigationViewEx.enableShiftingMode(false);
+    }
     // now add methods
 }
